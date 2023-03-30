@@ -9,12 +9,7 @@ library("forecast")
 library("kableExtra")
 
 # Load Data -------------------------------------------------------------------
-dat <- readRDS(here("data", "step-change.rds"))
-
-tib <- 1:length(dat) |>
-  map_dfr(\(x) {
-    mutate(dat[[x]], index = 1:nrow(dat[[x]]), sequence = as_factor(x), .before = p_f)
-  })
+df_st <- readRDS(here("data", "step-change.rds"))
 
 # Step Change Time Series Plots ---------------------------------------------
 
