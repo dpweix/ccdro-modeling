@@ -2,7 +2,6 @@ library("tidyverse")
 library("here")
 library("lubridate")
 
-
 # Open Loop Experiments -------------------------------------------------------
 
 # Names of raw data files
@@ -26,19 +25,19 @@ dat_raw_open <-
 
 # Get file names
 file_names_step <-
-  here("data") |> 
+  here("data", "Set Point Step Change Experiment", "Step Change 1") |> 
   list.files() |> 
   str_subset("Dataset")
 
 # Order file names
-file_names_step[17:23] <- file_names_step[2:8]
-file_names_step <- file_names_step[-c(2:8)]
+file_names_step[16:21] <- file_names_step[2:7]
+file_names_step <- file_names_step[-c(2:7)]
 
 # Import raw data
 dat_raw_step <-
   file_names_step |> 
   map(\(x) {
-    read_csv(here("data", x))
+    read_csv(here("data", "Set Point Step Change Experiment", "Step Change 1", x))
   })
 
 
@@ -66,13 +65,14 @@ clean_data_step <- function(x, i) {
   x |> 
     transmute(
       sequence = as_factor(i),
+      drain_valve = as_factor(`Drain Valve Position`),
       date_time = mdy_hms(paste(Date, Time)),
       hr = `Runtime (hr)`,
       p_f = `Feed Pump Power Draw (kW)`,
       p_r = `Recirculation Pump Power Draw (kW)`,
       f_p = `Permeate Flow (L/min)`,
       f_r = `Reject Flow (L/min)`,
-      c_p = `Permeate Conductivity (uS/cm)`,
+      c_p = `Permeate Conductivity (uS/cm)`/1000,
       c_r = `Reject Conductivity (mS/cm)`,
       t_f = `Feed Temperature (C)`)
 }
@@ -85,4 +85,4 @@ dat_clean_step <- imap_dfr(dat_raw_step, clean_data_step)
 
 # Save all clean data as list of data frames
 saveRDS(dat_clean_open, file = here("data", "open-loop.rds"))
-saveRDS(dat_clean_step, file = here("data", "step-change.rds"))
+saveRDS(dat_clean_step, file = here("data", "step-change-1.rds"))
