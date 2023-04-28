@@ -1,0 +1,24 @@
+
+Main purpose:
+This folder contains experimental data for system identification. The PID controllers for setpoint control of the flow rates were turned on throughout the experiment. The input to the systemwere step changes (pseudorandom number) in the flowrates.
+
+
+Step Change 1
+
+Dataset 1-5: The setpoints were changed every two minutes. 
+The flux and flow rate set points were changed incrementally in a stepwise manner. 
+The increment per step of the flux is 0.75 LMH/step and for the flow rate the increment is 0.55 L/min/step.
+
+Dataset 6-10: This experiment contains two minute and ten-minute set point changes in the flux and flow rates. The two-minute set point changes were implemented first followed by the ten-minute set point changes. The set points were generated using Latin hypercube sampling. The range of the flux used was [10, 25] LMH and [44 55] L/min for the flow rate.
+
+Dataset 11-15: This experiment also contains two minute and ten-minute set point changes in the flux and flow rates. However, the two minute and ten-minute set point changes are implemented randomly. 
+The set points were generated using Latin hypercube sampling. The flux and flow rate ranges were the same as in the previous experiment. 
+
+
+
+Step Change 2
+
+Dataset 1-6: The setpoints were changed every two minutes.
+The set points were generated using Latin hypercube sampling. The range of the flux used was [10, 25] LMH and [44 55] L/min for the flow rate. The two-minute set point changes were done using the LabView VI. 
+
+Dataset 6-14: The setpoints were changed every ten-minutes. The set points were generated using Latin hypercube sampling. The flux and flow rate ranges were the same as in the previous experiment. The ten-minute set point changes were done using the LabView VI. 

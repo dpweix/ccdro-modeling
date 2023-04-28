@@ -1,0 +1,36 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2708
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs26 \cf0 \expnd0\expndtw0\kerning0
+Main purpose:\
+The main purpose of these experiments is to collect data under open-loop conditions (no feedback control) in the expected range of operation. To this end, the flux through the system and the recirculation flow rates are brought to a nominal setpoint by means of manipulation of the power delivered to each pump through conventional feedback control (PI control). Once reached, the feedback controllers are switched off and a sinusoidal perturbation is applied to the power delivered to (a) one pump, (b)  both pumps, or(c) none of the pumps. The system continues in filtration mode until an upper control limit for conductivity is reached. When this happens, the system is switched to drainage mode. When the conductivity drops below a lower control limit, the system is switched back to filtration mode. Each file in this data set corresponds to a single filtration phase followed by a drainage phase.\
+\
+File Naming Conventions:\
+HP \'96 High Pressure/Influent Pump\
+CP \'96 Circulation Pump\
+Both \'96 The speed of both CP and HP is perturbed different frequencies (harmonics of 1 min cycle, so 20 & 30 second)\
+Both_SameFreq \'96 The power applied to both CP and HP is perturbed but at the same frequency for both (1 min cycles)\
+HPwave \'96 The power applied to HP is perturbed, the speed of CP is kept constant\
+CPwave \'96 The power applied to CP is perturbed, the speed of HP is kept constant \
+NOwave \'96 Once the desired flux (for HP) and flow rate (CP) is reached, the power applied to CP and HP is kept constant (no perturbations). \
+\
+File Name meaning\
+Experiment # _ HP _ Start Flux _ CP _ Start Recycle flow _ Experiment Type (HPwave, CPwave etc.)\
+\
+Setpoints:\
+Temperature: 20 C\
+Low  conductivity set point (to end drainage mode): 20 ms/cm\
+High  conductivity set point (to end filtration mode): 45 ms/cm or 20 cycles (equivalent to 20 minutes) whichever come first.\
+End cycle with turbidity: NO\
+High turbidity: N/A\
+VI version: 7.10\
+Influent Conductivity: approx. 12 ms/cm\
+Water conditions: Only NaCl\
+\
+Notes about data sets: \
+Data set \'931_HP_12_CP_50_HPwave\'94 has a period of no flow and then a short spike and then the dataset ends. Ignore the second spike, as there was a glitch in the VI causing the sequence to end prematurely, but the system ran correctly for the setpoints provided in the file name.}
